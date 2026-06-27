@@ -1,0 +1,12 @@
+Source: ros-humble-pointcloud-conversions
+Section: misc
+Priority: optional
+Maintainer: "li9i" <alexandros.filotheou@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-humble-ament-cmake, ros-humble-ament-cmake-python, ros-humble-ament-lint-auto <!nocheck>, ros-humble-ament-lint-common <!nocheck>, ros-humble-pcl-conversions, ros-humble-rclcpp, ros-humble-rclpy, ros-humble-sensor-msgs, ros-humble-sensor-msgs-py, ros-humble-std-srvs, ros-humble-tf2, ros-humble-tf2-geometry-msgs, ros-humble-tf2-ros, ros-humble-yaml-cpp-vendor, ros-humble-ros-workspace
+Homepage: https://index.ros.org/p/pointcloud_conversions/#humble
+Standards-Version: 3.9.2
+
+Package: ros-humble-pointcloud-conversions
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python3-numpy, ros-humble-pcl-conversions, ros-humble-rclcpp, ros-humble-rclpy, ros-humble-sensor-msgs, ros-humble-sensor-msgs-py, ros-humble-std-srvs, ros-humble-tf2, ros-humble-tf2-geometry-msgs, ros-humble-tf2-ros, ros-humble-yaml-cpp-vendor, ros-humble-ros-workspace
+Description: ROS 2 utilities for PLY/XYZ/PointCloud2 conversion and TF2-based frame transforms: ply_to_xyz and xyz_to_ply transframers (C++) and a pointcloud_to_ply mesh reconstructor (Python/Open3D).
