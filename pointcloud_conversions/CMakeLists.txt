@@ -6,16 +6,16 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 find_package(ament_cmake REQUIRED)
-find_package(ament_cmake_python REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(rclpy REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(std_srvs REQUIRED)
+find_package(pcl_ros REQUIRED)
 find_package(pcl_conversions REQUIRED)
 find_package(yaml_cpp_vendor REQUIRED)
+find_package(PCL REQUIRED COMPONENTS common io surface filters features)
 
 include_directories(include)
 include_directories(${PCL_INCLUDE_DIRS})
@@ -55,13 +55,10 @@ add_executable(xyz_to_ply_transframer_interface_node
 target_link_libraries(xyz_to_ply_transframer_interface_node xyz_to_ply_transframer_lib)
 ament_target_dependencies(xyz_to_ply_transframer_interface_node ${transframer_deps})
 
-# --- pointcloud_to_ply (Python) ---
-ament_python_install_package(pointcloud_to_ply)
-install(PROGRAMS
-  pointcloud_to_ply/pointcloud_to_ply_node.py
-  DESTINATION lib/${PROJECT_NAME}
-  RENAME pointcloud_to_ply_node
-)
+# --- pointcloud_to_ply (C++ / PCL) ---
+add_executable(pointcloud_to_ply_node src/pointcloud_to_ply/pointcloud_to_ply_node.cpp)
+ament_target_dependencies(pointcloud_to_ply_node rclcpp sensor_msgs pcl_ros pcl_conversions)
+target_link_libraries(pointcloud_to_ply_node ${PCL_LIBRARIES})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -73,6 +70,7 @@ install(TARGETS
   ply_to_xyz_transframer_interface_node
   xyz_to_ply_transframer_lib
   xyz_to_ply_transframer_interface_node
+  pointcloud_to_ply_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
@@ -80,7 +78,7 @@ install(DIRECTORY include/
   DESTINATION include/
 )
 
-install(DIRECTORY launch config
+install(DIRECTORY launch
   DESTINATION share/${PROJECT_NAME}
 )
 
