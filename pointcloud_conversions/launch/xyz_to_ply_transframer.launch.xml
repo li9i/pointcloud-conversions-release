@@ -3,8 +3,8 @@
   <arg name="namespace"               default="/"/>
   <arg name="task_planner_notify_end" default="false"/>
   <!-- ===================================================================== -->
-  <arg name="input_directory"         default="/home/jazzy/shared-input/"/>
-  <arg name="output_directory"        default="/home/jazzy/shared-output/"/>
+  <arg name="input_directory"         default="/home/lyrical/shared-input/"/>
+  <arg name="output_directory"        default="/home/lyrical/shared-output/"/>
   <arg name="input_file_prefix"       default="3D_Model_Filtered_Point_Cloud"/>
   <let name="input_file_id"           value=""/> <!-- Leave blank -->
   <arg name="input_file_pattern"      default="$(var input_file_prefix)_(\\d+)\\.xyz"/>

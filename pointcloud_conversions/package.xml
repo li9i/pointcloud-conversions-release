@@ -1,14 +1,17 @@
 <?xml version="1.0"?>
 <package format="3">
   <name>pointcloud_conversions</name>
-  <version>0.0.2</version>
-  <description>ROS 2 utilities for PLY/XYZ/PointCloud2 conversion and TF2-based frame transforms: ply_to_xyz and xyz_to_ply transframers and a pointcloud_to_ply mesh reconstructor (PCL).</description>
+  <version>0.0.3</version>
+  <description>ROS 2 utilities for PLY/XYZ/PointCloud2 conversion and TF2-based frame transforms: ply_to_xyz and xyz_to_ply transframers (C++) and a pointcloud_to_ply mesh reconstructor (Python/Open3D).</description>
   <maintainer email="alexandros.filotheou@gmail.com">li9i</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
 
   <depend>rclcpp</depend>
+  <depend>rclpy</depend>
+  <depend>sensor_msgs_py</depend>
   <depend>tf2</depend>
   <depend>tf2_ros</depend>
   <depend>tf2_geometry_msgs</depend>
@@ -16,8 +19,8 @@
   <depend>std_srvs</depend>
   <depend>yaml_cpp_vendor</depend>
   <depend>pcl_conversions</depend>
-  <depend>pcl_ros</depend>
-  <depend>libpcl-all-dev</depend>
+
+  <exec_depend>python3-numpy</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
@@ -25,4 +28,6 @@
   <export>
     <build_type>ament_cmake</build_type>
   </export>
+
+  <!-- pointcloud_to_ply (Python) additionally requires Open3D, which has no rosdep key: pip3 install open3d -->
 </package>

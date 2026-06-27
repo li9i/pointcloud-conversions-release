@@ -1,30 +1,10 @@
-<?xml version="1.0"?>
 <launch>
-  <!-- Node configuration -->
-  <node pkg="pointcloud_conversions" exec="pointcloud_to_ply_node" name="pointcloud_to_ply_node" output="screen">
 
-    <!-- Input/Output Configuration -->
-    <param name="pointcloud_topic"            value="/point_cloud"/>
-    <param name="output_path"                 value="/home/ros2user/ros2_ws/src/pointcloud_to_ply/shared"/>
-    <param name="output_basename"             value="mesh"/>
-    <param name="output_format"               value="obj"/>  <!-- "obj" or "ply" -->
-
-    <!-- Preprocessing Parameters -->
-    <param name="voxel_downsample_size"       value="0.01"/>  <!-- 0.0 to disable -->
-    <param name="remove_statistical_outliers" value="true"/>
-    <param name="nso_nb_neighbors"            value="20"/>
-    <param name="nso_std_ratio"               value="2.0"/>
-
-    <!-- Normal Estimation Parameters -->
-    <param name="normal_radius"               value="0.05"/>
-    <param name="normal_max_nn"               value="30"/>
-
-    <!-- Poisson Reconstruction Parameters -->
-    <param name="poisson_depth"               value="9"/>  <!-- 8-12 typical range -->
-    <param name="poisson_density_quantile"    value="0.05"/>  <!-- Note: Not fully supported in PCL -->
-
-    <!-- Behavior -->
-    <param name="shutdown_after_save"         value="true"/>
-
+  <node pkg="pointcloud_conversions"
+    exec="pointcloud_to_ply_node"
+    name="pointcloud_to_ply_node"
+    output="screen">
+      <param from="$(find-pkg-share pointcloud_conversions)/config/params.yaml"/>
   </node>
+
 </launch>

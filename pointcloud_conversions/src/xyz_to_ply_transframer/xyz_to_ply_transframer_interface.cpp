@@ -84,7 +84,7 @@ TransframerInterface::TransframerInterface()
       this,
       std::placeholders::_1,
       std::placeholders::_2),
-    rmw_qos_profile_services_default,
+    rclcpp::ServicesQoS(),
     cb_group_
     );
 
@@ -97,7 +97,7 @@ TransframerInterface::TransframerInterface()
       this,
       std::placeholders::_1,
       std::placeholders::_2),
-    rmw_qos_profile_services_default,
+    rclcpp::ServicesQoS(),
     cb_group_
     );
 
