@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="3">
   <name>pointcloud_conversions</name>
-  <version>0.0.3</version>
+  <version>0.0.4</version>
   <description>ROS 2 utilities for PLY/XYZ/PointCloud2 conversion and TF2-based frame transforms: ply_to_xyz and xyz_to_ply transframers (C++) and a pointcloud_to_ply mesh reconstructor (Python/Open3D).</description>
   <maintainer email="alexandros.filotheou@gmail.com">li9i</maintainer>
   <license>MIT</license>
