@@ -15,7 +15,7 @@ A single ROS 2 (Lyrical) package bundling three utilities:
 
 ```bash
 cd ~/ros2_ws/src
-git clone -b lyrical-devel https://github.com/li9i/ply-utils.git
+git clone -b lyrical-devel https://github.com/li9i/pointcloud-conversions.git
 cd ~/ros2_ws
 rosdep install --from-paths src -y --ignore-src
 colcon build --packages-select pointcloud_conversions
