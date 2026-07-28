@@ -82,4 +82,4 @@ tracks:
     ros_distro: lyrical
     vcs_type: git
     vcs_uri: https://github.com/li9i/pointcloud-conversions.git
-    version: 0.0.3
+    version: 0.0.4
